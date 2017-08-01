@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+	  <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+	  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <style type="text/css">
+      	body{
+      		padding: 5px
+      	}
+      	header{
+      		display: flex;
+      		height: 35px;
+/*       		border: 1px solid red; */
+      		padding: 5px 0px;
+      	}
+      	header .left{
+			width: 50%;
+			text-align: left;
+      	}
+      	header .right{
+			width: 50%;
+			text-align: right;
+      	}
+      	.collapsible-body .item{
+      		width: 100%;
+      		display: flex;
+      		height: 30px;
+      	}
+      	.collapsible-body .item i{
+      		display:flex;
+      		width: 10%;
+      		text-align: right;
+      	}
+      	.collapsible-body .item span{
+      		display:flex;
+      		width: 90%;
+      		text-align: left;
+      	}
+      	footer{
+      		width: 100%;
+      	}
+      	footer .left{
+      		width:50%;
+      		text-align: left;
+      		display: inline-block;
+      	}
+      	footer .left{
+      		width:50%;
+    		text-align: left;
+      		display: inline-block;
+      	}
+      	.chip:hover {
+			background-color: #ee6e73;
+			color: #fff;
+		}
+      </style>
+      <script>
+      	var page = 0;
+        $(document).ready(function() {
+      		$(".item").click(function(){
+      			if($(this).find("i").text()=="check_box_outline_blank"){
+      				$(this).find("i").text("check_box");
+      			}else if($(this).find("i").text()=="check_box"){
+      				$(this).find("i").text("check_box_outline_blank");
+      			}
+      		});
+      		
+      		$(".radio").click(function(){
+      			var pIndex = $(this).parent().index(".collapsible-body");
+      			$(".collapsible-body").eq(pIndex).find(".material-icons").text("radio_button_unchecked");
+      			$(this).find(".material-icons").text("radio_button_checked");
+      		});
+      		$("#prevBtn").click(function(){
+      			if(page==0){
+      				alert("처음페이지 입니다.");
+      				return;
+      			}else{
+      				page--;
+      				$(".step").hide();
+      				$(".step").eq(page).show();
+      			}
+      		});
+      		$("#nextBtn").click(function(){
+      			if(page==3){
+      				alert("마지막페이지 입니다.");
+      				return;
+      			}else{
+      				page++;
+      				$(".step").hide();
+      				$(".step").eq(page).show();
+      			}
+      		});
+      	});
+      </script>
+    </head>
+    <body>
+      <header>
+      	<div class="left">
+      		설문년도
+      	</div>	
+      	<div class="right">
+      		설문문항회차
+      	</div>
+      </header>
+      <ul class="collapsible" data-collapsible="expandable">
+              <li class="step">
+                <div class="collapsible-header active"><i class="material-icons">comment</i>첫번째 질문 타이틀</div>
+                <div class="collapsible-body">
+                		<div class='item check'>
+                			<i class="material-icons">check_box_outline_blank</i><span>매우좋음</span>
+                		</div>
+                		<div class='item check'>
+                			<i class="material-icons">check_box_outline_blank</i><span>좋음</span>
+               			</div>
+                		<div class='item check'>
+                			<i class="material-icons">check_box_outline_blank</i><span>보통</span>
+               			</div>
+               			<div class='item check'>
+                			<i class="material-icons">check_box_outline_blank</i><span>나쁨</span>
+               			</div>
+               			<div class='item check'>
+<!--                				<i class="material-icons">check_box</i> -->
+                			<i class="material-icons">check_box</i><span>아주나쁨</span>
+               			</div>
+                </div>
+              </li>
+             
+             <li class="step" style="display: none">
+                <div class="collapsible-header active"><i class="material-icons">comment</i>두번째 질문 타이틀</div>
+                <div class="collapsible-body">
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>매우좋음</span>
+                		</div>
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>좋음</span>
+               			</div>
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>보통</span>
+               			</div>
+               			<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>나쁨</span>
+               			</div>
+               			<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>아주나쁨</span>
+               			</div>
+                </div>
+              </li>
+              
+              <li class="step"  style="display: none">
+                <div class="collapsible-header active"><i class="material-icons">comment</i>세번째 질문 타이틀</div>
+                <div class="collapsible-body">
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>매우좋음</span>
+                		</div>
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>좋음</span>
+               			</div>
+                		<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>보통</span>
+               			</div>
+               			<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>나쁨</span>
+               			</div>
+               			<div class='item radio'>
+                			<i class="material-icons">radio_button_unchecked</i><span>아주나쁨</span>
+               			</div>
+                </div>
+              </li>
+            </ul>
+            <footer>
+            	<div class="left">
+            		<div class="chip" id="prevBtn">이전</div>
+            	</div>
+            	<div class="right">
+            		<div class="chip" id="nextBtn">다음 </div>
+            	</div>
+            </footer>
+            	
+           
+    </body>
+  </html>
